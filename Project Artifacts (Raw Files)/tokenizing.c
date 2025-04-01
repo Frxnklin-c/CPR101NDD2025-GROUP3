@@ -1,16 +1,14 @@
+/* Version 1 */
+// TOKENIZING MODULE SOURCE
+#include<stdio.h>
 #include "tokenizing.h"
 
-void tokenizing() {
-/* Version 1 */
->> insert here
+// V1
+int main (){
+// we run the function tokenizing located in the headerfile
+tokenizing ();
 
-
-/* Version 2 */
->> insert here
-
-
-/* Version 3 */
->> insert here
-
+return 0;
 
 }
+
