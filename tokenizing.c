@@ -1,37 +1,38 @@
 #include "tokenizing.h"  // Include the header for declarations and constants
 
-// Function that demonstrates how to tokenize a string into individual words
+// Function that demonstrates how to tokenize a string, seperated by comma into individual words
 void tokenizing(void) {
-    printf("*** Start of Tokenizing Words Demo ***\n");
+	//prompting user to enter a string of character
+   printf("*** Start of Tokenizing Phrases Demo ***\n");
 
-    // Buffer to hold the user input string
-    char words[TOKENIZING_BUFFER_SIZE];
-
-    // Pointer to hold each word found by strtok
-    char* nextWord = NULL;
+    char phrases[BUFFER_SIZE];
+    //defining an array with size of the entered string
+    char* nextPhrase = NULL;
+    int phrasesCounter;
 
     do {
-        // Prompt the user for input
-        printf("Type a few words separated by space (q - to quit):\n");
+        printf("Type a few phrases separated by comma (q - to quit):\n");
+        fgets(phrases, BUFFER_SIZE, stdin);
+        //reading user input from stdin
+        phrases[strlen(phrases) - 1] = '\0';
+       // setting the last character to be null terminator to remove new line charactteer
+        if ((strcmp(phrases, "q") != 0)) {
+        	//continue only if user Input is not "q"
+            nextPhrase = strtok(phrases, ",");
+            //spliting the string into phrases/tokens whenever there is ","
+            phrasesCounter = 1;
+            // counts the number of phrases/tokens
 
-        // Read input from the user
-        fgets(words, TOKENIZING_BUFFER_SIZE, stdin);
-
-        // Remove the trailing newline character from the input
-        words[strlen(words) - 1] = '\0';
-
-        // Check if user wants to quit
-        if (strcmp(words, "q") != 0) {
-            // Tokenize the string based on spaces
-            nextWord = strtok(words, " ");
-
-            // Loop through each token (word)
-            while (nextWord) {
-                printf("Next word is '%s'\n", nextWord);  // Print the token
-                nextWord = strtok(NULL, " ");  // Continue tokenizing
+// while nextPhrase is not Equal to "null", prints the nextPhrase counter and value  
+            while (nextPhrase) {
+    
+                printf("Phrase #%d is '%s'\n", phrasesCounter++, nextPhrase);
+                nextPhrase = strtok(NULL, ",");
+                //sets the value of next phrase to null to move to next token
             }
         }
-    } while (strcmp(words, "q") != 0);  // Repeat until user enters 'q'
+    } while (strcmp(phrases, "q") != 0); // repeat until user input is not "q"
 
-    printf("*** End of Tokenizing Words Demo ***\n\n");
+    printf("*** End of Tokenizing Phrases Demo ***\n");
+    
 }
