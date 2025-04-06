@@ -1,8 +1,7 @@
+These are instructions to make running the program easier.                                                                                                                                   
 Open the main.c in the repo
-Enter this in the terminal section of your IDE: (  gcc main.c fundamentals.c manipulating.c converting.c tokenizing.c -o Project_V1  )   (Without the brackets)
-Then enter this: (   ./Project_V1   )    (Without the brackets)
-
-
-The Progrm should run without any errors.
-
-Test all modules (Read the "Programming Test Cases(1).pdf" on BlackBoard for what and how to test, Then use the "module-test-cases(2).xlsx" on BlackBoard as the template to record the test cases)
+Enter this in the terminal section of your IDE: (  gcc main.c fundamentals.c manipulating.c converting.c tokenizing.c -o project  )   (Without the brackets)
+Then enter this: (   ./project   )    (Without the brackets)
+ 
+ 
+The Program should run without any errors.
