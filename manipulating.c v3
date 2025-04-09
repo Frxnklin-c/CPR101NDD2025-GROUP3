@@ -1,0 +1,27 @@
+#include "manipulating.h"   // Makes sure to include header file
+
+void manipulating(void) {
+
+    printf("*** Start of Searching Strings Demo ***\n");
+    char haystack[BUFFER_SIZE];  // buffer added for the main string
+    char needle[BUFFER_SIZE];    // buffer for the substring
+    char* occurrence = NULL;     // Pointer added to create storage for substring location
+    do {
+        printf("Type the string (q - to quit):\n");
+        fgets(haystack, BUFFER_SIZE, stdin);
+        haystack[strlen(haystack) - 1] = '\0'; // Corrects the trim newline
+        if (strcmp(haystack, "q") != 0) {
+            printf("Type the substring:\n");
+            fgets(needle, BUFFER_SIZE, stdin);
+            needle[strlen(needle) - 1] = '\0'; // Corrects the trim newline
+            occurrence = strstr(haystack, needle);
+            if (occurrence) {
+                printf("'%s' found at position %d\n", needle, (int)(occurrence - haystack)); // type casts to int and use the int format specifier "%d"
+            } else {
+                printf("Not found\n");
+            }
+        }
+    } while (strcmp(haystack, "q") != 0); // the
+    printf("*** End of Searching Strings Demo ***\n\n");
+}
+
